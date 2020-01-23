@@ -2,7 +2,7 @@ import React from 'react';
 
 function Todo(props) {
   return (
-    <div className='Todo'>
+    <div className={props.todo.completed ? 'Todo complete' : 'Todo incomplete'}>
      <p>{props.todo.title}</p>
     </div>
   );

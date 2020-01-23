@@ -25,10 +25,13 @@ class App extends React.Component{
     return (
       <div className='App'>
         <h1>ToDo Application</h1> 
-        <p>{this.state.todos.length}</p>    
-        {this.state.todos.map((todo, index) => (
-          <Todo todo = {todo} key={index}/>
-        ))}
+        <p>{this.state.todos.length}</p> 
+        <section className="todos">
+          {this.state.todos.map((todo, index) => (
+            <Todo todo = {todo} key={index}/>
+          ))}
+        </section> 
+        
       </div>
     );
   }
