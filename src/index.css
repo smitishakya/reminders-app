@@ -4,6 +4,8 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: 25px;
+  background-color: rgb(26, 26, 22);
+  color: white;
 
 }
 
@@ -24,7 +26,7 @@ div {
 }
 
 .Todo{ 
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 20px;
   margin: 10px;
   width: 60%;
@@ -33,7 +35,7 @@ div {
 }
 
 .Todo.complete {
-  background-color: rgb(65, 65, 154);
+  background-color: rgb(106, 41, 152);
 }
 
 .Todo.incomplete{
@@ -53,5 +55,4 @@ input{
   padding: 25px;
   border: 2px solid black;
   font-size: 30px;
-
 }

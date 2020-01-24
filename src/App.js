@@ -50,6 +50,7 @@ class App extends React.Component{
         <h1>ToDo Application</h1> 
         <p>{this.state.todos.length}</p>
         <TodoForm addTodo = {this.addTodo}/> 
+        <h2>Things to do today</h2>
         <section className="todos">
           {this.state.todos.map((todo, index) => (
             <Todo 
