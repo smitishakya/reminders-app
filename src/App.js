@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './Todo.js';
+import TodoForm from './TodoForm.js';
 
 class App extends React.Component{
 
@@ -18,17 +19,46 @@ class App extends React.Component{
       ]
     }
   }
+  
+  addTodo = e => {
+    e.preventDefault();
+    let title = e.target.title.value;
+    let newTodo = {title, completed: false};
+    this.setState({
+      todos: [ ...this.state.todos, newTodo]
+    })
+
+  }
 
 
+  toggleCompleted = (index) => {
+    let todos = this.state.todos;
+    todos[index].completed = !todos[index].completed;
+    this.setState({todos});
+  }
+
+  deleteTodo = (e, index) => {
+    e.preventDefault();
+    e.stopPropagation();
+    let todos = this.state.todos.filter((todo, i) => parseInt(index, 10) !== i);
+    this.setState({todos});
+  }
 
   render(){
     return (
       <div className='App'>
         <h1>ToDo Application</h1> 
-        <p>{this.state.todos.length}</p> 
+        <p>{this.state.todos.length}</p>
+        <TodoForm addTodo = {this.addTodo}/> 
         <section className="todos">
           {this.state.todos.map((todo, index) => (
-            <Todo todo = {todo} key={index}/>
+            <Todo 
+            todo = {todo} 
+            key={index}
+            index={index}
+            toggleCompleted = {this.toggleCompleted}
+            deleteTodo = {this.deleteTodo}
+            />
           ))}
         </section> 
         
